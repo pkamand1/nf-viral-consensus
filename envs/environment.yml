@@ -1,0 +1,16 @@
+# Conda environment used by the conda profile and by the container definitions.
+name: nf-viral-consensus
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - bioconda::fastp=1.4.0
+  - bioconda::bowtie2=2.5.5
+  - bioconda::samtools=1.24
+  - bioconda::bcftools=1.25
+  - bioconda::ivar=1.4.4
+  - bioconda::mafft=7.525
+  - bioconda::iqtree=3.1.4
+  - bioconda::multiqc=1.35
+  - conda-forge::python=3.12
+  - conda-forge::procps-ng

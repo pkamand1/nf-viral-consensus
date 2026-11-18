@@ -1,0 +1,24 @@
+# Apptainer (Singularity) definition for the same single image, for HPC and
+# high-throughput computing systems that run Apptainer rather than Docker.
+# Build:  apptainer build nf-viral-consensus.sif containers/apptainer.def
+#         (run from the repository root so that envs/environment.yml is found)
+# Use:    nextflow run main.nf -profile apptainer --single_container ./nf-viral-consensus.sif ...
+Bootstrap: docker
+From: mambaorg/micromamba:2.0.5
+
+%files
+    envs/environment.yml /tmp/environment.yml
+
+%post
+    micromamba install -y -n base -f /tmp/environment.yml
+    micromamba clean --all --yes
+
+%environment
+    export PATH=/opt/conda/bin:$PATH
+
+%labels
+    Author Patricia K. Kamanda
+    Version 0.1.0
+
+%help
+    Reference-based viral consensus genomes, variant calls, and phylogeny.

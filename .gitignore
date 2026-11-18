@@ -1,0 +1,8 @@
+work/
+results*/
+.nextflow/
+.nextflow.log*
+*.sif
+assets/test/kraken2_db/library/
+assets/test/kraken2_db/taxonomy/
+__pycache__/
